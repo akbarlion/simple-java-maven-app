@@ -23,7 +23,7 @@ node {
 	    archiveArtifacts 'target/submission-app-1.0-SNAPSHOT.jar'
 	    docker.build("submission-app:latest");
 	    sh "ssh-keyscan -H 13.250.57.185 >> ~/.ssh/known_hosts"
-	    sh "/usr/bin/scp -i /var/jenkins_home/appserver.pem /var/jenkins_home/workspace/submission-cicd-pipeline-akbrln/target/submission-app-1.0-SNAPSHOT.jar  ec2-user@172.31.32.107:/home/ubuntu/submission-app-1.0-SNAPSHOT.jar"
+	    sh "/usr/bin/scp -i /var/jenkins_home/appserver.pem /var/jenkins_home/workspace/submission-cicd-pipeline-akbrln/target/submission-app-1.0-SNAPSHOT.jar  ec2-user@172.31.32.107:/home/ec2-user/submission-app-1.0-SNAPSHOT.jar"
 	    sh 'docker run --rm submission-app'
 	    sleep 60
     }
